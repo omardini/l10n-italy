@@ -637,19 +637,19 @@ class WizardExportFatturapa(models.TransientModel):
                 ].kind_id.code
             if line.admin_ref:
                 DettaglioLinea.RiferimentoAmministrazione = line.admin_ref
-            if line.product_id:
-                if line.product_id.default_code:
-                    CodiceArticolo = CodiceArticoloType(
-                        CodiceTipo='ODOO',
-                        CodiceValore=line.product_id.default_code
-                    )
-                    DettaglioLinea.CodiceArticolo.append(CodiceArticolo)
-                if line.product_id.barcode:
-                    CodiceArticolo = CodiceArticoloType(
-                        CodiceTipo='EAN',
-                        CodiceValore=line.product_id.barcode
-                    )
-                    DettaglioLinea.CodiceArticolo.append(CodiceArticolo)
+            #if line.product_id:
+            #    if line.product_id.default_code:
+            #        CodiceArticolo = CodiceArticoloType(
+            #            CodiceTipo='ODOO',
+            #            CodiceValore=line.product_id.default_code
+            #        )
+            #        DettaglioLinea.CodiceArticolo.append(CodiceArticolo)
+            #    if line.product_id.barcode:
+            #        CodiceArticolo = CodiceArticoloType(
+            #            CodiceTipo='EAN',
+            #            CodiceValore=line.product_id.barcode
+            #        )
+            #        DettaglioLinea.CodiceArticolo.append(CodiceArticolo)
             line_no += 1
 
             body.DatiBeniServizi.DettaglioLinee.append(DettaglioLinea)
