@@ -593,6 +593,8 @@ class WizardImportFatturapa(models.TransientModel):
                     dline.GiorniTerminiPagamento or 0,
                     'payment_due_date':
                     dline.DataScadenzaPagamento or False,
+                    'date_due':
+                    dline.DataScadenzaPagamento or False,
                     'payment_amount':
                     dline.ImportoPagamento or 0.0,
                     'post_office_code':
@@ -836,8 +838,6 @@ class WizardImportFatturapa(models.TransientModel):
             'fiscal_document_type_id': docType_id,
             'date_invoice':
             FatturaBody.DatiGenerali.DatiGeneraliDocumento.Data,
-            'date_due': 
-            FatturaBody.DatiPagamento.DettaglioPagamento.DataScadenzaPagamento,
             'reference':
             FatturaBody.DatiGenerali.DatiGeneraliDocumento.Numero,
             'sender': fatt.FatturaElettronicaHeader.SoggettoEmittente or False,
